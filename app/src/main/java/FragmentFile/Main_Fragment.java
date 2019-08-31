@@ -227,7 +227,7 @@ public class Main_Fragment extends Fragment{
                 emergency_comment = "도와주세요 빨리 이리로 와주세요 제 위치는 " + addresses.get(0).getAddressLine(0) + "입니다 빨리와주세요.";
 
             //Toast.makeText(getContext(), emergency_comment, Toast.LENGTH_SHORT).show();
-            smsManager.sendTextMessage("01039932977", null, emergency_comment, null, null);
+            smsManager.sendTextMessage("call number", null, emergency_comment, null, null);
             Toast.makeText(getContext(), "문자신고 완료(나를 지켜줘)", Toast.LENGTH_SHORT).show();
             locationManager.removeUpdates(locationListener); //추후 112로 번호 변경
         }
