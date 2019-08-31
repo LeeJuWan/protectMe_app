@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_use"
+    android:orientation="vertical">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scale_base_width="420"
+        app:scale_base_height="170">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사용방법"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:scale_width="220"
+            app:scale_height="50"
+            app:scale_left="150"
+            app:scale_textsize="28"
+            app:scale_top="120" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:text="본 서비스는 오로지 범죄상황에 처해진 사용자들에게\n도움이 되고자 만들어진 서비스입니다.
+그러나 사용자들의 상황을 책임 지진않습니다.\n절대로 위급상황을 아닌 상황에 사용을 금합니다.\n서비스의 기능은 다음과 같습니다.\n\n
+1. 긴급신고 전화: 위급 시 112로 자동신고 전화가 \n진행됩니다.\n
+2. 문자신고 접수: 위급 시 사용자의 GPS위치를 추적하여 위치+구조멘트를 결합한 뒤 112로 자동 문자\n신고접수가 진행됩니다.\n
+3. 녹음 : 5분간 자동녹음을 진행하며 5분 뒤에 자동으로 저장합니다. 저장된 녹음파일은 추후 법적\n증거에 사용 할 수 있습니다.\n
+4. 비명소리 : 위급 시 탑재된 비명소리를 통하여\n주변에 나의 위험을 20초간 전파합니다.\n
+5. 예방알람 : 매일 밤 10시에 고정된 예방알람 문자를 통하여 사용자들에게 예방알람을 보냅니다.\n
+예방알람 수신여부는 아래의 알람 설정에서 할 수 있습니다.\n\n
+절대로 위급한 상황이 아닐 시에는 사용을 금합니다.
+감사합니다.
+" />
+    </ScrollView>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scale_base_width="420"
+        app:scale_base_height="90">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="문의사항: leejuwan123@naver.com"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:scale_width="340"
+            app:scale_height="60"
+            app:scale_left="10"
+            app:scale_textsize="18"
+            app:scale_top="40" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

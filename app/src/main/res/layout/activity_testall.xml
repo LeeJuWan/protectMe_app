@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_test"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scale_base_width="466"
+        app:scale_base_height="700">
+
+        <EditText
+            android:id="@+id/Test_all_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:hint="전화번호 입력 ex 010-1234-1234"
+            android:textStyle="bold"
+            app:scale_width="350"
+            app:scale_height="60"
+            app:scale_left="50"
+            app:scale_top="130"
+            app:scale_textsize="18"/>
+
+        <Button
+            android:id="@+id/Test_all_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_button"
+            android:text="테스트 시작"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:scale_width="350"
+            app:scale_height="60"
+            app:scale_left="50"
+            app:scale_top="200"
+            app:scale_textsize="20"/>
+
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

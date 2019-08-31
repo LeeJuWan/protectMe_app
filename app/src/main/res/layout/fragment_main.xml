@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_main"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="700"
+        app:scale_base_width="466">
+
+        <ImageButton
+            android:id="@+id/mainView_Warning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_warning"
+            app:scale_left="70"
+            app:scale_top="170"
+            app:scale_width="70"
+            app:scale_height="50"/>
+        <ImageButton
+            android:id="@+id/mainView_All_SOS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_allsos"
+            app:scale_left="60"
+            app:scale_top="250"
+            app:scale_width="150"
+            app:scale_height="100"/>
+
+        <ImageButton
+            android:id="@+id/mainView_Call_112"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_auto_call"
+            app:scale_left="60"
+            app:scale_top="370"
+            app:scale_width="150"
+            app:scale_height="100"/>
+
+        <ImageButton
+            android:id="@+id/mainView_Audio_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_autorecord"
+            app:scale_left="260"
+            app:scale_top="250"
+            app:scale_width="150"
+            app:scale_height="100"/>
+
+
+
+        <ImageButton
+            android:id="@+id/mainView_SMS_Trans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_autosms"
+            app:scale_left="260"
+            app:scale_top="370"
+            app:scale_width="150"
+            app:scale_height="100"/>
+
+
+
+        <ImageButton
+            android:id="@+id/mainView_Scrum_On"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_scrum_on"
+            app:scale_left="60"
+            app:scale_top="510"
+            app:scale_width="150"
+            app:scale_height="100"/>
+
+        <ImageButton
+            android:id="@+id/mainView_Scrum_Off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_scrum_off"
+            app:scale_left="260"
+            app:scale_top="510"
+            app:scale_width="150"
+            app:scale_height="100" />
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="홈" />
+
+    <item
+        android:id="@+id/navigation_how_to_use"
+        android:icon="@drawable/how_to_use"
+        android:title="사용방법" />
+
+    <item
+        android:id="@+id/navigation_homepage"
+        android:icon="@drawable/hompage_icon"
+        android:title="홈페이지" />
+
+    <item
+        android:id="@+id/navigation_test_setting"
+        android:icon="@drawable/test_setting"
+        android:title="테스트사용/알람" />
+
+
+</menu>
