@@ -229,7 +229,7 @@ public class Main_Fragment extends Fragment{
             //Toast.makeText(getContext(), emergency_comment, Toast.LENGTH_SHORT).show();
             smsManager.sendTextMessage("call number", null, emergency_comment, null, null);
             Toast.makeText(getContext(), "문자신고 완료(나를 지켜줘)", Toast.LENGTH_SHORT).show();
-            locationManager.removeUpdates(locationListener); //추후 112로 번호 변경
+            locationManager.removeUpdates(locationListener);
         }
 
         @Override
