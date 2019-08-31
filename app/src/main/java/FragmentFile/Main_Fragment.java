@@ -197,7 +197,7 @@ public class Main_Fragment extends Fragment{
     private void AutoCall_112() {
         Intent Call = new Intent();
         Call.setAction(Intent.ACTION_CALL);
-        Call.setData(Uri.parse("tel:01039932977"));
+        Call.setData(Uri.parse("tel:[call number]"));
         startActivity(Call);
     }
 
