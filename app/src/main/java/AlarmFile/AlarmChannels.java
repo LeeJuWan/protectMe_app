@@ -71,9 +71,14 @@ public class AlarmChannels {
         notificationManager.deleteNotificationChannel(id);
     }
 
+   
     //오레오 이상 버전
     @TargetApi(Build.VERSION_CODES.O)
     public static  void sendNotification(Context context, int id, @Channel String channel){
+        Intent intent = new Intent(context, SplashActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
         builder = new Notification.Builder((Context) context,channel)
                 .setTicker("현재 시간은 성범죄 발생빈도가 높은 시간대 입니다." +
@@ -85,6 +90,7 @@ public class AlarmChannels {
                 .setContentText("현재 시간은 성범죄 발생빈도가 높은 시간대 입니다." +
                         "넓은 도로 및 밝은 도로로 통하여 안전 귀가하세요. 감사합니다.")
                 .setDefaults(Notification.DEFAULT_VIBRATE | Notification.DEFAULT_LIGHTS)
+                .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
         bigTextStyle= new Notification.BigTextStyle(builder);
         bigTextStyle.setBigContentTitle("나를 지켜줘 예방 알람");
@@ -96,6 +102,11 @@ public class AlarmChannels {
     //오레오 미만 버전
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public static void sendNotification_notOreo(Context context){
+        Intent intent = new Intent(context, SplashActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+
         notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
         builder = new Notification.Builder(context)
                 .setTicker("현재 시간은 성범죄 발생빈도가 높은 시간대 입니다." +
@@ -107,6 +118,7 @@ public class AlarmChannels {
                 .setContentText("현재 시간은 성범죄 발생빈도가 높은 시간대 입니다." +
                         "넓은 도로 및 밝은 도로로 통하여 안전 귀가하세요. 감사합니다.")
                 .setDefaults(Notification.DEFAULT_VIBRATE | Notification.DEFAULT_LIGHTS)
+                .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
 
         bigTextStyle= new Notification.BigTextStyle(builder);
