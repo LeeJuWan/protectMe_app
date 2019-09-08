@@ -150,21 +150,20 @@ public class PermissionCheckAcitivty extends AppCompatActivity {
         }
     }
 
-    public void AlarmSettings() {
+   public void AlarmSettings() {
         alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
 
-        Alarm_set = new Intent(PermissionCheckAcitivty.this, AlarmService.class);
+        Alarm_set = new Intent(PermissionCheckAcitivty.this, AlarmReceiver.class);
 
         pendingIntent = PendingIntent.getBroadcast(PermissionCheckAcitivty.this, 0, Alarm_set, 0);
-
         calendar = Calendar.getInstance();
         //알람시간 calendar에 set해주기
-
-        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE), 19, 0, 0);
-
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE), 23, 43, 0);
         //알람 예약
         if (alarmManager != null) {
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY, pendingIntent);
+            Toast.makeText(getApplicationContext(),"예방알람 시간 셋팅 완료",Toast.LENGTH_SHORT).show();
         }
+
     }
 }
