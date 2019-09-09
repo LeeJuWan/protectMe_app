@@ -7,3 +7,5 @@
 3. 비명소리 출력 기능 : 직접  비명소리를 On Off 할 수 있음
 
 4. 녹음 기능 : 백그라운드에서 일정 시간동안 녹음이 진행 되며, 자동으로 저장된다. 저장 경로는 휴대폰 내장파일(SDCard) 
+
+https://protect.koreacentral.cloudapp.azure.com:8443 나를 지켜줘 웹 어플리케이션
