@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_setting"
+    android:orientation="vertical">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scale_base_width="466"
+        app:scale_base_height="700">
+
+        <ImageButton
+            android:id="@+id/TestSOS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_allsos"
+            app:scale_left="260"
+            app:scale_top="400"
+            app:scale_width="150"
+            app:scale_height="100"
+            tools:ignore="MissingPrefix" />
+
+        <ImageButton
+            android:id="@+id/Test_Call_112"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_auto_call"
+            app:scale_left="60"
+            app:scale_top="400"
+            app:scale_width="150"
+            app:scale_height="100"
+            tools:ignore="MissingPrefix"/>
+
+
+        <ImageButton
+            android:id="@+id/SystemSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_notisetting"
+            app:scale_left="60"
+            app:scale_top="220"
+            app:scale_width="150"
+            app:scale_height="100"
+            tools:ignore="MissingPrefix"/>
+
+
+        <ImageButton
+            android:id="@+id/AlarmTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_noti"
+            app:scale_left="260"
+            app:scale_top="220"
+            app:scale_width="150"
+            app:scale_height="100"
+            tools:ignore="MissingPrefix"/>
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

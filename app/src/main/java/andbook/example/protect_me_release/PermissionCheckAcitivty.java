@@ -23,16 +23,13 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-import AlarmFile.AlarmChannels;
-import AlarmFile.AlarmService;
+import Alarm_Utill.AlarmChannels;
+import Alarm_Utill.AlarmReceiver;
 
 public class PermissionCheckAcitivty extends AppCompatActivity {
 
     private final int PERMISSIONREQUEST_RESULT=100; // 콜백 호출시 requestcode로 넘어가는 구분자
-    private  AlarmManager alarmManager;
-    private  Intent Alarm_set;
-    private  Calendar calendar;
-    private  PendingIntent pendingIntent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +38,12 @@ public class PermissionCheckAcitivty extends AppCompatActivity {
         Button permission = (Button) findViewById(R.id.permission);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN); //상태바 제거
+                WindowManager.LayoutParams.FLAG_FULLSCREEN); // 상태바 제거
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            AlarmChannels.createChannel(getApplicationContext()); //알람채널 생성
+            AlarmChannels.createChannel(getApplicationContext()); // 알람채널 생성
         }
-        AlarmSettings(); //알람 시간 셋팅
-
-
+        AlarmSettings(); // 알람 시간 셋팅
 
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
                 ContextCompat.checkSelfPermission(this,Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED &&
@@ -64,12 +59,30 @@ public class PermissionCheckAcitivty extends AppCompatActivity {
         permission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CheckPermission(); //퍼미션 권한 진행 및 권한을 모두 허용시 Check Permission 메소드에서 메인으로 넘어감
+                CheckPermission(); // 퍼미션 권한 진행 및 권한을 모두 허용 시, Check Permission 메소드에서 메인으로 넘어감
             }
         });
     }
 
-    //퍼미션 권한 진행 함수
+    // 알람 시간 셋팅
+    private void AlarmSettings() {
+        AlarmManager  alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+
+        Intent Alarm_set = new Intent(PermissionCheckAcitivty.this, AlarmReceiver.class);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(PermissionCheckAcitivty.this, 0, Alarm_set, 0);
+        Calendar calendar = Calendar.getInstance();
+        // 알람시간 calendar에 set해주기
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE), 23, 43, 0);
+
+        // 알람 예약
+        if (alarmManager != null) {
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY, pendingIntent);
+            Toast.makeText(getApplicationContext(),"예방알람 시간 셋팅 완료",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // 퍼미션 권한 진행 함수
     private void CheckPermission(){
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED ||
                 ContextCompat.checkSelfPermission(this,Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_DENIED ||
@@ -78,7 +91,7 @@ public class PermissionCheckAcitivty extends AppCompatActivity {
                 ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_DENIED ||
                 ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED)
         {
-            //사용자의 최초 퍼미션 허용을 확인         -true: 사용자 퍼미션 거부 , -false: 사용자 동의 미 필요
+            // 사용자의 최초 퍼미션 허용을 확인         -true: 사용자 퍼미션 거부 , -false: 사용자 동의 미 필요
             if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.ACCESS_FINE_LOCATION) ||
                     ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.SEND_SMS) ||
                     ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.RECORD_AUDIO) ||
@@ -124,8 +137,9 @@ public class PermissionCheckAcitivty extends AppCompatActivity {
             if(grantResult.length > 0){
                 for (int aGrantResult : grantResult) {
                     if (aGrantResult == PackageManager.PERMISSION_DENIED) {
-                        //권한이 하나라도 거부 될 시
+                        // 권한이 하나라도 거부 될 시
                         new AlertDialog.Builder(this,R.style.MyCustomDialogStyle)
+                                .setCancelable(false)
                                 .setTitle("사용 권한의 문제발생")
                                 .setIcon(R.drawable.icon96)
                                 .setMessage("저희 서비스 사용을 위해서는 서비스의 요구권한을 필수적으로 허용해주셔야합니다.")
@@ -141,29 +155,13 @@ public class PermissionCheckAcitivty extends AppCompatActivity {
                                 Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                                         .setData(Uri.parse("package:" + getApplicationContext().getPackageName()));
                                 getApplicationContext().startActivity(intent);
+                                finish();
                             }
-                        }).setCancelable(false).show();
+                        }).show();
                         return;
                     }
                 }
             }
         }
-    }
-
-   public void AlarmSettings() {
-        alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-
-        Alarm_set = new Intent(PermissionCheckAcitivty.this, AlarmReceiver.class);
-
-        pendingIntent = PendingIntent.getBroadcast(PermissionCheckAcitivty.this, 0, Alarm_set, 0);
-        calendar = Calendar.getInstance();
-        //알람시간 calendar에 set해주기
-        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE), 23, 43, 0);
-        //알람 예약
-        if (alarmManager != null) {
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY, pendingIntent);
-            Toast.makeText(getApplicationContext(),"예방알람 시간 셋팅 완료",Toast.LENGTH_SHORT).show();
-        }
-
     }
 }

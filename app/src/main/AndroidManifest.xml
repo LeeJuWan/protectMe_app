@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="andbook.example.protect_me_release">
 
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -13,7 +14,8 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        android:allowBackup="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:allowBackup="false"
         android:icon="@drawable/icon96"
         android:label="나를지켜줘"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -25,61 +27,66 @@
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:exported="false"/>
         <activity
             android:name=".PermissionCheckAcitivty"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:exported="false"/>
         <activity
-            android:name=".TestallsosActivity"
-            android:theme="@style/AppTheme" />
+            android:name=".TestAll_SOSActivity"
+            android:theme="@style/AppTheme"
+            android:exported="false"/>
         <activity
-            android:name=".TestcallAcitivity"
-            android:theme="@style/AppTheme" />
+            android:name=".TestCallActivity"
+            android:theme="@style/AppTheme"
+            android:exported="false"/>
 
         <service
-            android:name="ModelFile.Scrum_Controll"
+            android:name="ModuleService.scrum_ControllService"
             android:enabled="true"
-            android:exported="false"> <!-- 컴포넌트 취약점 제거 -->
+            android:exported="false">
         </service>
         <service
-            android:name="ModelFile.Scrum_NoControll"
+            android:name="ModuleService.scrum_noControllService"
             android:enabled="true"
-            android:exported="false"> <!-- 컴포넌트 취약점 제거 -->
-        </service>
+            android:exported="false"/>
+
         <service
-            android:name="ModelFile.Audio"
+            android:name="ModuleService.audioService"
             android:enabled="true"
-            android:exported="false"> <!-- 컴포넌트 취약점 제거 -->
-        </service>
+            android:exported="false"/>
+
         <service
-            android:name="ModelFile.TestScrum"
+            android:name="ModuleService.testScrumService"
             android:enabled="true"
-            android:exported="false"> <!-- 컴포넌트 취약점 제거 -->
-        </service>
+            android:exported="false"/>
+
         <service
-            android:name="ModelFile.TestAudio"
+            android:name="ModuleService.testAudioService"
             android:enabled="true"
-            android:exported="false"> <!-- 컴포넌트 취약점 제거 -->
-        </service>
+            android:exported="false"/>
+
 
         <receiver
-            android:name="AlarmFile.AlarmReceiver"
+            android:name="Alarm_Utill.AlarmReceiver"
             android:enabled="true"
-            android:exported="false"></receiver>
+            android:exported="false"/>
+
         <receiver
-            android:name="AlarmFile.BootReceiver"
+            android:name="Alarm_Utill.BootReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-    </application>
 
+    </application>
 </manifest>

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_main"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical">
 
     <com.ssomai.android.scalablelayout.ScalableLayout
         android:layout_width="match_parent"
@@ -20,7 +23,9 @@
             app:scale_left="70"
             app:scale_top="170"
             app:scale_width="70"
-            app:scale_height="50"/>
+            app:scale_height="50"
+            tools:ignore="MissingPrefix" />
+
         <ImageButton
             android:id="@+id/mainView_All_SOS"
             android:layout_width="wrap_content"
@@ -29,7 +34,8 @@
             app:scale_left="60"
             app:scale_top="250"
             app:scale_width="150"
-            app:scale_height="100"/>
+            app:scale_height="100"
+            tools:ignore="MissingPrefix" />
 
         <ImageButton
             android:id="@+id/mainView_Call_112"
@@ -39,7 +45,8 @@
             app:scale_left="60"
             app:scale_top="370"
             app:scale_width="150"
-            app:scale_height="100"/>
+            app:scale_height="100"
+            tools:ignore="MissingPrefix" />
 
         <ImageButton
             android:id="@+id/mainView_Audio_record"
@@ -49,9 +56,8 @@
             app:scale_left="260"
             app:scale_top="250"
             app:scale_width="150"
-            app:scale_height="100"/>
-
-
+            app:scale_height="100"
+            tools:ignore="MissingPrefix" />
 
         <ImageButton
             android:id="@+id/mainView_SMS_Trans"
@@ -61,9 +67,8 @@
             app:scale_left="260"
             app:scale_top="370"
             app:scale_width="150"
-            app:scale_height="100"/>
-
-
+            app:scale_height="100"
+            tools:ignore="MissingPrefix" />
 
         <ImageButton
             android:id="@+id/mainView_Scrum_On"
@@ -73,7 +78,8 @@
             app:scale_left="60"
             app:scale_top="510"
             app:scale_width="150"
-            app:scale_height="100"/>
+            app:scale_height="100"
+            tools:ignore="MissingPrefix" />
 
         <ImageButton
             android:id="@+id/mainView_Scrum_Off"
@@ -83,8 +89,7 @@
             app:scale_left="260"
             app:scale_top="510"
             app:scale_width="150"
-            app:scale_height="100" />
-
+            app:scale_height="100"
+            tools:ignore="MissingPrefix" />
     </com.ssomai.android.scalablelayout.ScalableLayout>
-
 </LinearLayout>

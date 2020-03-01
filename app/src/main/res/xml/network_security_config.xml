@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" /> <!--특정경로가 아닌, 모든 경로를 허용 android Pie 버전부터 https제외 모든 평문전송 방어 -->
+</network-security-config>
